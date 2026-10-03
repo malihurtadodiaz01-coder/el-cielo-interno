@@ -6,6 +6,7 @@ import Hero from "../components/Hero.astro";
 import WaButton from "../components/WaButton.astro";
 import Trayectoria from "../components/Trayectoria.astro";
 import LibroTexto from "../components/LibroTexto.astro";
+import Testimonios from "../components/Testimonios.astro";
 import { site, u } from "../data/site";
 import carlos from "../assets/carlos.jpg";
 import portada from "../assets/portada.jpg";
@@ -74,7 +75,7 @@ const eventos = (await getCollection("eventos"))
     </div>
   </section>
 
-  {/* Testimonios: pendiente de autorización de las personas. Activar con <Testimonios /> */}
+  <Testimonios />
 
   {site.featuredVideo && (
     <section>
@@ -93,7 +94,7 @@ const eventos = (await getCollection("eventos"))
     </section>
   )}
 
-  <section>
+  <section class="alt">
     <div class="wrap">
       <h2 class="center">Próximos eventos</h2>
       {eventos.length ? (
@@ -111,7 +112,7 @@ const eventos = (await getCollection("eventos"))
     </div>
   </section>
 
-  <section class="alt center">
+  <section class="center">
     <div class="narrow">
       <h2>¿Conversamos?</h2>
       <p>Escríbeme y vemos juntos cuál es el mejor camino para ti.</p>
