@@ -4,7 +4,7 @@ export const site = {
   tagline:
     "La presencia, la naturaleza, las relaciones y la vida cotidiana son en sí mismas el camino espiritual.",
   whatsapp: "573164931214",
-  email: "", // PENDIENTE
+  email: "carlose@elcielointerno.com", // publicado por Carlos en Instagram (ago. 2025)
   social: {
     instagram: "https://www.instagram.com/el.cielo.interno",
     youtube: "https://www.youtube.com/@el.cielo.interno",
@@ -29,6 +29,25 @@ export const nav = [
   { href: "/eventos", label: "Eventos" },
   { href: "/sobre-carlos", label: "Sobre Carlos" },
   { href: "/contacto", label: "Contacto" },
+];
+
+// Testimonios publicados por Carlos en Instagram (@el.cielo.interno, agosto de 2025), transcritos tal cual.
+export const testimonios = [
+  {
+    nombre: "Catalina Velasteguí",
+    texto:
+      "Quiero compartir mi gratitud por el taller El Cielo Interno. Ha sido mucho más que un curso; fue un espacio seguro donde pude aprender a observarme desde una perspectiva consciente y compasiva. Esto me abrió las puertas a un conocimiento más profundo de mí misma, revelando aspectos que antes no había explorado. Fue muy significativa la oportunidad de aprender, y ahora, al aplicar las enseñanzas día a día, sé que lo aprendido fomenta mi bienestar y crecimiento personal.",
+  },
+  {
+    nombre: "Martha Burgos",
+    texto:
+      "En el taller “El Cielo Interno” encontré una serie de valiosas herramientas que me ayudaron a ser más consciente de las sensaciones de mi cuerpo, de mis emociones y pensamientos. Esto me ha permitido discernir con objetividad lo que sucede dentro de mí. El curso nos aporta conocimientos y prácticas de fácil aplicación para nuestro bienestar y crecimiento interior.",
+  },
+  {
+    nombre: "Sylvia M. Gómez",
+    texto:
+      "Tomar el curso El Cielo Interno con Carlos Eduardo Hurtado ha sido una experiencia profundamente enriquecedora. La información, las prácticas, los ejemplos y las metáforas que compartió fueron claras, impactantes y muy útiles para mi crecimiento espiritual.",
+  },
 ];
 
 // PENDIENTE: completar tarifas reales
