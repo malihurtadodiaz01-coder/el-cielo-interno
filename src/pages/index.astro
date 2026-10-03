@@ -4,6 +4,8 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import WaButton from "../components/WaButton.astro";
+import Trayectoria from "../components/Trayectoria.astro";
+import LibroTexto from "../components/LibroTexto.astro";
 import { site, u } from "../data/site";
 import carlos from "../assets/carlos.jpg";
 import portada from "../assets/portada.jpg";
@@ -25,9 +27,10 @@ const eventos = (await getCollection("eventos"))
   <section>
     <div class="wrap">
       <blockquote class="quote">
-        “Cuando creemos ser sólo nuestros cuerpos, cuando creemos ser nuestras ideologías,
-        pensamientos y emociones, perdemos de vista el ser profundo, dejamos de sentir la
-        unidad que todos compartimos en esencia.”
+        "Cuando creemos ser sólo nuestros cuerpos,<br />
+        cuando creemos ser nuestras ideologías, pensamientos y emociones,<br />
+        perdemos de vista el ser profundo,<br />
+        dejamos de sentir la unidad que todos compartimos en esencia."
       </blockquote>
     </div>
   </section>
@@ -36,14 +39,8 @@ const eventos = (await getCollection("eventos"))
     <div class="wrap split">
       <Image src={carlos} alt="Retrato de Carlos Hurtado frente al cielo azul" width={560} />
       <div>
-        <h2>Trayectoria y propósito</h2>
-        <p>
-          Para Carlos, la presencia, la naturaleza, las relaciones y la vida cotidiana son en sí
-          mismas el camino espiritual. Psicólogo con maestría de la Universidad de los Andes y
-          posgrado en Psicología y Counseling Transpersonal e Integral, hoy, con 18 años de
-          experiencia, acompaña a individuos, parejas y grupos en un mismo viaje de regreso a la esencia.
-        </p>
-        <a class="btn" href={u("/sobre-carlos")}>Conocer más</a>
+        <h2>Trayectoria y Propósito</h2>
+        <Trayectoria />
       </div>
     </div>
   </section>
@@ -52,11 +49,7 @@ const eventos = (await getCollection("eventos"))
     <div class="wrap split">
       <div>
         <h2>El arte de reconciliarse con la vida</h2>
-        <p>
-          <em>El Cielo Interno</em> invita, a través de experiencias propias, comprensiones,
-          poemas y ejercicios prácticos, a reconciliarse con el misterio que es la vida.
-          Descárgalo gratis.
-        </p>
+        <LibroTexto />
         <a class="btn" href={u("/libro")}>Ver y descargar el libro</a>
       </div>
       <Image src={portada} alt="Portada del libro El Cielo Interno" width={360} style="margin-inline:auto" />
