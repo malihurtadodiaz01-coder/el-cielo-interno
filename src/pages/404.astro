@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { u } from "../data/site";
+---
+<BaseLayout title="Página no encontrada · El Cielo Interno" description="La página que buscas no existe.">
+  <section class="center">
+    <div class="narrow">
+      <h1>Esta nube pasó</h1>
+      <p>La página que buscas no existe, pero el cielo sigue ahí.</p>
+      <a class="btn" href={u("/")}>Volver al inicio</a>
+    </div>
+  </section>
+</BaseLayout>

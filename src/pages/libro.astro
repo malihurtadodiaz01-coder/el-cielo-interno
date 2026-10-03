@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import { site, indiceLibro, u } from "../data/site";
+import portada from "../assets/portada.jpg";
+---
+<BaseLayout title="Libro El Cielo Interno · Descarga gratuita" description="Descarga El Cielo Interno: descubre el Amor que no tiene opuesto, de Carlos Eduardo Hurtado Díaz.">
+  <Hero title="Descarga mi libro de manera gratuita" compact />
+  <section>
+    <div class="wrap split">
+      <Image src={portada} alt="Portada del libro El Cielo Interno, de Carlos E. Hurtado Díaz" width={420} style="margin-inline:auto" />
+      <div>
+        <h2>El arte de reconciliarse con la vida</h2>
+        <p>
+          <strong>El Cielo Interno</strong> nace del agradecimiento y de una profunda experiencia que
+          llevó a su autor a renacer a una nueva manera de relacionarse con la vida. A través de la
+          narración de experiencias propias, comprensiones, poemas y ejercicios prácticos, invita al
+          lector a reconciliarse con el misterio que es la vida.
+        </p>
+        <p class="muted">
+          <em>Descubre el Amor que no tiene opuesto.</em><br />
+          Carlos Eduardo Hurtado Díaz · Bogotá D.C., noviembre de 2022 · ISBN 978-958-49-7710-6 · 129 páginas.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href={u(site.book)} download>Descargar PDF</a>
+          <a class="btn" style="background:transparent;color:var(--cielo-profundo)" href={site.bookDrive} rel="noopener">Ver en Drive</a>
+        </div>
+        <p class="notice" style="margin-top:1.5rem">
+          Obra compartible con respeto a la fuente. Se prohíbe su uso comercial.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="alt">
+    <div class="wrap book-list">
+      <h2 class="center">Lo que encontrarás</h2>
+      {Object.entries(indiceLibro).map(([parte, caps]) => (
+        <div>
+          <h3>{parte}</h3>
+          <ol>{caps.map((c) => <li>{c}</li>)}</ol>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import { tarifas } from "../data/site";
+const { tipo } = Astro.props as { tipo: "individual" | "pareja" };
+const lista = tarifas[tipo];
+---
+<details>
+  <summary>Ver tarifas y opciones de pago</summary>
+  {lista.length > 0 ? (
+    <ul>
+      {lista.map((t) => <li><strong>{t.nombre}:</strong> {t.precio}{t.detalle ? ` — ${t.detalle}` : ""}</li>)}
+    </ul>
+  ) : (
+    <p>Escríbeme por WhatsApp y te comparto las tarifas y las formas de pago.</p>
+  )}
+</details>

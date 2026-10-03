@@ -1,0 +1,8 @@
+---
+titulo: "Nombre del encuentro"
+fecha: 2026-11-15
+modalidad: virtual
+lugar: "Zoom"
+enlace: "https://..."
+---
+Descripción breve. Renombra este archivo a algo como `2026-11-encuentro.md` para publicarlo.

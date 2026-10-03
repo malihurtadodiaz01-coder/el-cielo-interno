@@ -1,0 +1,5 @@
+---
+import { wa } from "../data/site";
+const { msg, label = "Escríbeme por WhatsApp", ghost = false } = Astro.props;
+---
+<a class:list={["btn", { ghost }]} href={wa(msg)} rel="noopener">{label}</a>

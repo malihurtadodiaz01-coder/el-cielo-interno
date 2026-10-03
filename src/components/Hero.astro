@@ -1,0 +1,21 @@
+---
+import { getImage } from "astro:assets";
+import cielo from "../assets/cielo.jpg";
+interface Props { title: string; subtitle?: string; compact?: boolean }
+const { title, subtitle, compact = false } = Astro.props;
+const bg = await getImage({ src: cielo, width: 1800, format: "webp", quality: 70 });
+---
+<section class:list={["hero", { compact }]} style={`background-image:linear-gradient(rgba(31,78,156,.30),rgba(31,78,156,.45)),url(${bg.src})`}>
+  <div class="wrap">
+    <h1>{title}</h1>
+    {subtitle && <p class="sub">{subtitle}</p>}
+    <div class="btn-row"><slot /></div>
+  </div>
+</section>
+<style>
+  .hero { background-size: cover; background-position: center; color: #fff; text-align: center; padding: clamp(5rem, 16vw, 11rem) 0; }
+  .hero.compact { padding: clamp(3.5rem, 10vw, 6.5rem) 0; }
+  .hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.25); }
+  .sub { max-width: 640px; margin: 0 auto 2rem; font-size: 1.2rem; }
+  .btn-row { justify-content: center; }
+</style>

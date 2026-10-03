@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import WaButton from "../components/WaButton.astro";
+import { site } from "../data/site";
+---
+<BaseLayout title="Contacto · El Cielo Interno" description="Escríbeme por WhatsApp o sígueme en redes.">
+  <Hero title="Contacto" compact />
+  <section>
+    <div class="narrow center">
+      <h2>Escríbeme</h2>
+      <p>La forma más rápida de comunicarte es por WhatsApp.</p>
+      <p><WaButton msg="Hola Carlos, te escribo desde el sitio El Cielo Interno." /></p>
+      {site.email && <p>Correo: <a href={`mailto:${site.email}`}>{site.email}</a></p>}
+      <h3 style="margin-top:2.5rem">Redes</h3>
+      <p>
+        <a href={site.social.instagram} rel="noopener">Instagram</a> ·
+        <a href={site.social.youtube} rel="noopener">YouTube</a> ·
+        <a href={site.social.facebook} rel="noopener">Facebook</a> ·
+        <a href={site.social.threads} rel="noopener">Threads</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

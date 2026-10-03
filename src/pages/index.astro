@@ -1,0 +1,126 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import WaButton from "../components/WaButton.astro";
+import { site, u } from "../data/site";
+import carlos from "../assets/carlos.jpg";
+import portada from "../assets/portada.jpg";
+
+const eventos = (await getCollection("eventos"))
+  .filter((e) => e.data.fecha >= new Date())
+  .sort((a, b) => a.data.fecha.getTime() - b.data.fecha.getTime())
+  .slice(0, 3);
+---
+<BaseLayout
+  title="El Cielo Interno · Psicología transpersonal y presencia"
+  description="Acompañamiento individual y de pareja, libro gratuito y espacios de presencia con Carlos Hurtado."
+>
+  <Hero title="El Cielo Interno" subtitle={site.tagline}>
+    <a class="btn" href={u("/libro")}>Descarga el libro</a>
+    <WaButton msg="Hola Carlos, te escribo desde el sitio El Cielo Interno." ghost />
+  </Hero>
+
+  <section>
+    <div class="wrap">
+      <blockquote class="quote">
+        “Cuando creemos ser sólo nuestros cuerpos, cuando creemos ser nuestras ideologías,
+        pensamientos y emociones, perdemos de vista el ser profundo, dejamos de sentir la
+        unidad que todos compartimos en esencia.”
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap split">
+      <Image src={carlos} alt="Retrato de Carlos Hurtado frente al cielo azul" width={560} />
+      <div>
+        <h2>Trayectoria y propósito</h2>
+        <p>
+          Para Carlos, la presencia, la naturaleza, las relaciones y la vida cotidiana son en sí
+          mismas el camino espiritual. Psicólogo con maestría de la Universidad de los Andes y
+          posgrado en Psicología y Counseling Transpersonal e Integral, hoy, con 18 años de
+          experiencia, acompaña a individuos, parejas y grupos en un mismo viaje de regreso a la esencia.
+        </p>
+        <a class="btn" href={u("/sobre-carlos")}>Conocer más</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <h2>El arte de reconciliarse con la vida</h2>
+        <p>
+          <em>El Cielo Interno</em> invita, a través de experiencias propias, comprensiones,
+          poemas y ejercicios prácticos, a reconciliarse con el misterio que es la vida.
+          Descárgalo gratis.
+        </p>
+        <a class="btn" href={u("/libro")}>Ver y descargar el libro</a>
+      </div>
+      <Image src={portada} alt="Portada del libro El Cielo Interno" width={360} style="margin-inline:auto" />
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2 class="center">Acompañamiento</h2>
+      <div class="grid2">
+        <article class="card">
+          <h3>Sesiones individuales</h3>
+          <p>Un espacio seguro para explorar lo que sientes doloroso o desafiante y profundizar en tu potencial esencial.</p>
+          <a href={u("/sesiones-individuales")}>Saber más →</a>
+        </article>
+        <article class="card">
+          <h3>Sesiones de pareja</h3>
+          <p>Transformar patrones y creencias inconscientes en una oportunidad para sanar y reconocerse como equipo.</p>
+          <a href={u("/sesiones-de-pareja")}>Saber más →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {site.featuredVideo && (
+    <section>
+      <div class="wrap center">
+        <h2>Video destacado</h2>
+        <div style="aspect-ratio:16/9;max-width:820px;margin-inline:auto">
+          <iframe
+            style="width:100%;height:100%;border:0;border-radius:16px"
+            src={`https://www.youtube-nocookie.com/embed/${site.featuredVideo}`}
+            title="Video destacado de El Cielo Interno"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section>
+    <div class="wrap">
+      <h2 class="center">Próximos eventos</h2>
+      {eventos.length ? (
+        <div class="grid2">
+          {eventos.map((e) => (
+            <article class="card">
+              <h3>{e.data.titulo}</h3>
+              <p class="muted">{e.data.fecha.toLocaleDateString("es-CO", { dateStyle: "long", timeZone: "UTC" })} · {e.data.modalidad}</p>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="center muted">Pronto compartiré nuevos encuentros. Síguelos en <a href={site.social.instagram}>Instagram</a>.</p>
+      )}
+    </div>
+  </section>
+
+  <section class="alt center">
+    <div class="narrow">
+      <h2>¿Conversamos?</h2>
+      <p>Escríbeme y vemos juntos cuál es el mejor camino para ti.</p>
+      <WaButton msg="Hola Carlos, te escribo desde el sitio El Cielo Interno." />
+    </div>
+  </section>
+</BaseLayout>

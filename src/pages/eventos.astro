@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import { site } from "../data/site";
+
+const todos = (await getCollection("eventos")).sort((a, b) => a.data.fecha.getTime() - b.data.fecha.getTime());
+const ahora = new Date();
+const proximos = todos.filter((e) => e.data.fecha >= ahora);
+const pasados = todos.filter((e) => e.data.fecha < ahora).reverse();
+const fmt = (d: Date) => d.toLocaleDateString("es-CO", { dateStyle: "long", timeZone: "UTC" });
+---
+<BaseLayout title="Eventos · El Cielo Interno" description="Próximos encuentros, talleres y espacios de presencia con Carlos Hurtado.">
+  <Hero title="Próximos eventos" compact />
+  <section>
+    <div class="wrap">
+      {proximos.length ? (
+        <div class="grid2">
+          {proximos.map((e) => (
+            <article class="card">
+              <h3>{e.data.titulo}</h3>
+              <p class="muted">{fmt(e.data.fecha)} · {e.data.modalidad}{e.data.lugar ? ` · ${e.data.lugar}` : ""}</p>
+              {e.data.enlace && <a href={e.data.enlace} rel="noopener">Más información →</a>}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="center muted">Pronto compartiré nuevos encuentros. Síguelos en <a href={site.social.instagram}>Instagram</a>.</p>
+      )}
+      {pasados.length > 0 && (
+        <>
+          <h2 style="margin-top:3rem">Anteriores</h2>
+          <ul>{pasados.map((e) => <li>{e.data.titulo} — {fmt(e.data.fecha)}</li>)}</ul>
+        </>
+      )}
+    </div>
+  </section>
+</BaseLayout>

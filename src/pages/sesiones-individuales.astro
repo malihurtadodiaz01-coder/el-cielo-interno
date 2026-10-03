@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Tarifas from "../components/Tarifas.astro";
+import WaButton from "../components/WaButton.astro";
+---
+<BaseLayout title="Sesiones individuales · El Cielo Interno" description="Un espacio seguro para explorar lo que sientes con presencia y compasión.">
+  <Hero title="Sesiones individuales" compact />
+  <section>
+    <div class="narrow">
+      <h2>Acompañamiento individual</h2>
+      <p>
+        La sesión individual es un espacio seguro donde podrás explorar no solo aquello que sientes
+        doloroso y desafiante, sino también profundizar en tu potencial esencial. A través de la
+        presencia y la compasión, te acompaño a explorar tus bloqueos, trascender las programaciones
+        que hoy te limitan y aprender a relajarte en quien realmente eres. Cada encuentro es una
+        oportunidad para recordar tu centro y abrazar tu propio proceso y humanidad.
+      </p>
+      <p>
+        En lugar de pelear contra los pensamientos, las emociones, los síntomas y las situaciones,
+        en lugar de buscar culpables o de sentirnos culpables, es posible hacer las paces con lo que
+        está sucediendo, dispuestos a permitirnos ser transformados por ello. En lugar de paralizarnos
+        o de entrar en guerra reprimiendo o atacando aquello que sentimos doloroso o desafiante,
+        podemos escucharlo, observarlo y sentirlo con inocencia y curiosidad, dispuestos a desaprender y aprender.
+      </p>
+      <Tarifas tipo="individual" />
+      <p style="margin-top:2rem">
+        <WaButton msg="Hola Carlos, vi tu sitio El Cielo Interno y me gustaría información sobre las sesiones individuales." />
+      </p>
+      <p class="notice">Las sesiones son procesos de acompañamiento y autoconocimiento; no sustituyen atención médica o psiquiátrica ni son un servicio de urgencias.</p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import WaButton from "../components/WaButton.astro";
+import carlos from "../assets/carlos.jpg";
+---
+<BaseLayout title="Sobre Carlos · El Cielo Interno" description="Trayectoria, formación y enfoque de Carlos Eduardo Hurtado Díaz, psicólogo y terapeuta transpersonal.">
+  <Hero title="Trayectoria y propósito" compact />
+  <section>
+    <div class="wrap split">
+      <Image src={carlos} alt="Retrato de Carlos Hurtado" width={560} />
+      <div>
+        <p>
+          Para Carlos, la presencia, la naturaleza, las relaciones y la vida cotidiana son en sí
+          mismas el camino espiritual. Momentos de profunda dificultad lo llevaron a cuestionar y a
+          buscar respuestas para trascender antiguas programaciones. Ese proceso le permitió
+          mejorar su relación con la consciencia, pasando de resistir y reprimir a abrazar y sentir
+          las diferentes manifestaciones.
+        </p>
+        <p>
+          A partir de ese despertar y de su necesidad de conciliar la psicología con la espiritualidad,
+          se graduó como Maestro en Arte con Opción en Psicología en la Universidad de los Andes y
+          realizó un posgrado en Psicología y Counseling Transpersonal e Integral en Sesama.
+        </p>
+        <p>
+          Hoy, con 18 años de experiencia, se dedica a facilitar procesos de autoconocimiento,
+          acompañando a individuos, parejas y grupos en un mismo viaje de regreso a la esencia.
+          No desde un lugar de maestro perfecto o infalible, sino como un igual, agradeciendo cada
+          encuentro como una oportunidad para seguir profundizando juntos en la compasión.
+        </p>
+        <WaButton msg="Hola Carlos, te escribo desde el sitio El Cielo Interno." />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
