@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
-import Testimonios from "../components/Testimonios.astro";
 import { site } from "../data/site";
 
 const todos = (await getCollection("eventos")).sort((a, b) => a.data.fecha.getTime() - b.data.fecha.getTime());
@@ -36,5 +35,4 @@ const fmt = (d: Date) => d.toLocaleDateString("es-CO", { dateStyle: "long", time
       )}
     </div>
   </section>
-  <Testimonios />
 </BaseLayout>

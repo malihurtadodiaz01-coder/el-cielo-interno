@@ -31,6 +31,7 @@ export const nav = [
   { href: "/contacto", label: "Contacto" },
 ];
 
+// NO PUBLICADOS aún: falta autorización de cada persona.
 // Testimonios publicados por Carlos en Instagram (@el.cielo.interno, agosto de 2025), transcritos tal cual.
 export const testimonios = [
   {
